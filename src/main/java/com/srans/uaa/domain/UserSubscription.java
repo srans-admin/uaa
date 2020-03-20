@@ -9,7 +9,7 @@ public class UserSubscription {
 	
 	public UserSubscription() {
 		super();
-		this.user = new User(null, null, 0, 0, null);
+		this.user = new User(null, null, 0, 0, null,null);
 		this.subscription = new Subscription();
 	}
 	
