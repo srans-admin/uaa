@@ -99,13 +99,14 @@ public class UserSubscriptionController {
 
 		Boolean status = false;
 
-		if (userDetails.getUsername() == null) {
+		if (userDetails.getUsername() != null&& userDetails.getPassword()!=null ) {
 			int checkPassword = userRepo.checkDetails(userDetails.getOldPassword());
 
 			if (checkPassword > 0) {
 
 				System.out.println(checkPassword);
-				userRepo.getUserInfo(userDetails.getOldPassword()).stream().forEach(user -> {
+				
+				userRepo.getUserInfo(userDetails.getOldPassword(),userDetails.getUsername()).stream().forEach(user -> {
 					user.setPassword(userDetails.getPassword());
 					userRepo.save(user);
 

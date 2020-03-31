@@ -22,8 +22,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	@Query(value = "select username from user  where  role=?1", nativeQuery = true)
 	 public Object[] findUsernameByRole(String role);
 	
-	@Query(value = "select u from User u where password=?1")
-	public List<User> getUserInfo(String pass);
+	@Query(value = "select u from User u where password=?1 and username=?2")
+	public List<User> getUserInfo(String pass, String username);
 	
 	@Query(value="select count(u.id) from User u where u.password=?1")
 	public int checkDetails(String password);
